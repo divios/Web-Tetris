@@ -1,0 +1,110 @@
+/* DESCRIPCIÓN ------------------------------------------------------------------
+Este fichero controla el estilo y animación de la barra de progreso
+------------------------------------------------------------------------------ */
+
+
+/* -- EFECTOS -----------------------------------------------------------------*/
+@keyframes move_stripes {
+    to{
+        background-position: var(--width), 100%;
+    }
+}
+
+@keyframes breath {
+    0% {
+        opacity: 0.9;
+    } 100% {
+        opacity: 1;
+    }
+}
+/*----------------------------------------------------------------------------*/
+
+
+
+:root {
+    --stripes-1: rgba(255, 255, 255, 0.1);
+    --stripes-2: rgba(255, 255, 255, 0.2);
+    --progress: linear-gradient(rgba(0, 88, 255, 0.85), rgba(255, 0, 170, 1));
+}
+
+progress {    
+    width: var(--width);
+    height: 15px;
+
+    background: linear-gradient(
+        90deg,
+
+        var(--stripes-1) 5%,
+
+        var(--stripes-2) 5%,
+        var(--stripes-2) 10%,
+
+        var(--stripes-1) 10%,
+        var(--stripes-1) 15%,
+
+        var(--stripes-2) 15%,
+        var(--stripes-2) 20%,
+
+        var(--stripes-1) 20%,
+        var(--stripes-1) 25%,
+
+        var(--stripes-2) 25%,
+        var(--stripes-2) 30%,
+
+        var(--stripes-1) 30%,
+        var(--stripes-1) 35%,
+
+        var(--stripes-2) 35%,
+        var(--stripes-2) 40%,
+
+        var(--stripes-1) 40%,
+        var(--stripes-1) 45%,
+
+        var(--stripes-2) 45%,
+        var(--stripes-2) 50%,
+
+        var(--stripes-1) 50%,
+        var(--stripes-1) 55%,
+
+        var(--stripes-2) 55%,
+        var(--stripes-2) 60%,
+
+        var(--stripes-1) 60%,
+        var(--stripes-1) 65%,
+
+        var(--stripes-2) 65%,
+        var(--stripes-2) 70%,
+
+        var(--stripes-1) 70%,
+        var(--stripes-1) 75%,
+
+        var(--stripes-2) 75%,
+        var(--stripes-2) 80%,
+
+        var(--stripes-1) 80%,
+        var(--stripes-1) 85%,
+
+        var(--stripes-2) 85%,
+        var(--stripes-2) 90%,
+
+        var(--stripes-1) 90%,
+        var(--stripes-1) 95%,
+
+        var(--stripes-2) 95%
+   
+    );
+
+    animation: move_stripes 3s linear infinite;
+}
+
+progress::-moz-progress-bar {
+    border-radius: 3px;
+    background: var(--progress);
+    animation: breath 0.5s alternate-reverse infinite;
+}
+
+progress::-webkit-progress-value {
+    border-radius: 2px;
+    background: var(--progress);
+    animation: breath 0.5s alternate-reverse infinite;
+}

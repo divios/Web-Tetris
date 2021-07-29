@@ -1,0 +1,89 @@
+#toptier{
+    
+    display: grid;
+    
+  
+    margin: 0 10% 5% 10%;
+}
+.ranker{
+    font-size:150%;
+    font-family: 'vcr_osd';
+    color:#ebebeb;
+    
+    text-align: center;
+}
+.fieldset{
+    margin-top: 15%;
+    border: none;
+}
+#ranking{
+    margin: 15% 20% 2% 20%;
+}
+
+#submit_rank{
+    margin-top:2%;
+
+}
+
+input[type=text] {
+    font-size: large;
+    padding: 0.5%;
+    background-color: rgb(0,0,0,0.4);
+    color: white;
+    border: none;
+    
+    border: 1px solid #ebebeb;
+}
+
+
+
+
+#Username_header{
+grid-row: 1;
+grid-column: 2;
+}
+
+#Score_header{
+    grid-row: 1;
+    grid-column: 3;
+}
+#user1{
+    grid-row: 2;
+    grid-column: 2;
+}
+#user2{
+    grid-row: 3;
+    grid-column: 2;
+}
+#user3{
+    grid-row: 4;
+    grid-column: 2;
+}
+#user4{
+    grid-row: 5;
+    grid-column: 2;
+}
+#user5{
+    grid-row: 6;
+    grid-column: 2;
+}
+#score1{
+    grid-row: 2;
+    grid-column: 3;
+}
+#score2{
+    grid-row: 3;
+    grid-column: 3;
+}
+#score3{
+    grid-row: 4;
+    grid-column: 3;
+}
+#score4{
+    grid-row: 5;
+    grid-column: 3;
+}
+#score5{
+    grid-row: 6;
+    grid-column: 3;
+}

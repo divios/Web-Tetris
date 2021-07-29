@@ -1,0 +1,291 @@
+@media screen and (max-width:1050px){
+    #controls_box_pc {
+        display: none;
+    }
+
+    #controls_box_smartphone {
+        display: block;
+    }
+
+    #fullscreen{
+        display: none;
+        right: -30px;
+        visibility: hidden;
+    }
+    
+    #header_dev ul{
+        width: 55%;
+    }
+
+    #controls #movil_txt{
+        display: block;
+        font-size: 50%;
+        margin-bottom: 5%;
+        text-align: left;
+    }
+    #reglas_txt{
+        text-align: center;
+        font-size:100%
+    }
+
+    #about_us{
+        font-size: 105%;
+        padding: 15% 5%;
+    }
+    p.developer{
+        margin-top: 15%;
+    }
+    .background3{
+        margin-top: -20%;
+    }
+    .background4{
+        margin-top: -50%;
+        padding-bottom: 100%;
+        padding-top: 200%;
+    }
+    #authors{
+        padding-top: 30%;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    #Tetris1{
+        width: min-content;
+        height: max-content;
+        margin: 20px;
+        margin-top: -20%;
+    }
+
+    #title {
+        height: 50%;
+        width: 50%;
+
+    }
+
+    #controls_box_pc {
+        display: none;
+    }
+
+    #controls_box_smartphone {
+        display: block;
+    }
+
+    #navigator{
+        grid-template-columns: none;
+        
+    }
+
+    #fullscreen{
+        display: none;
+        right: -30px;
+        visibility: hidden;
+    }
+
+    #navigator span{
+        display: block;
+    }
+
+    #nGame{
+        padding:  25px 60px 25px 60px;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    #nDev{
+        padding:  25px 60px 25px 60px;
+        margin-top: 30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #nAuthors{
+        padding:  25px 60px 25px 60px;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #letters h3{
+        font-size: 150%;
+    }
+    canvas{
+        width: 150px;
+        margin: auto;
+        box-sizing:border-box;
+    }
+    #canvas_1{
+        width: 200px;
+        margin-top: 200px;
+    }
+    #canvas_4{
+        width: 100%;
+    }
+    
+    #back{
+        left: 5px;
+        top: 10%;
+        
+        position:absolute;
+        display: inline;
+    }
+    #music{
+        left: 5px;
+        top: 50px;
+        
+        position:absolute;
+        display: inline;
+    }
+    #stop_video{
+        left: 5px;
+        top: 100px;
+        
+        position:absolute;
+        display: inline;
+    }
+
+    #video iframe{
+        padding-top: 90%;
+        width: 75%;
+        height: 200px;
+    }
+
+    #hoverme{
+        visibility: hidden;
+    }
+
+    .leveler{
+        grid-template-columns: 50% 50%;
+    }
+
+    .secondary img{
+        margin: 0px 0px 10% 0px;
+    }
+
+    #header_dev{
+        display: block;
+        padding-bottom: 13%;
+    } 
+
+    #header_dev ul{
+        margin-left: 20%;
+        margin-top: -8%;
+        padding-bottom: 2%;
+    }
+
+    #header_dev ul li h3{
+        margin: 0px 15px;
+        font-size: 95%;
+    }
+
+    .boton:active {
+        border: 1px solid grey;
+    }
+    
+    #rank_img{
+        height: 100px;
+    }
+    .ranker{
+        font-size: 80%;
+    }
+
+    .ranker p{
+        margin: 20%;
+        width: 300%;
+    }   
+    
+    #toptier{
+        margin: 0 10% 0 5%;
+    }
+
+    #loading span{
+        margin-top: 350px;
+    }
+    .interactive{
+        padding: 0;
+        margin: 0;
+    }
+
+    #home iframe{
+        padding-top: 90%;
+        width: 90%;
+        height: 300px;
+    }
+
+    #instructions p{
+        
+        font-size: 35%;
+}
+
+    #instructions{
+        padding: 55% 5% 0% 5%;
+
+    }
+
+    #controls{
+        padding: 0% 5%;
+    }
+    
+    #controls p{
+        display: block;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #controls img{
+        margin-top: 70%;
+    }
+
+    #about_us{
+        margin-top: 200px;
+        min-height: 80vh;
+        padding: 45% 5%;
+        font-size: 55%;
+        display: block;
+    }
+    
+
+    #authors{
+        row-gap: 20%;
+        grid-template-columns: 50% 50%;
+        padding-left: 8%;
+        animation: fadein 3.5s forwards;
+        padding-top: 0%;
+    }
+
+    #nia{
+        grid-template-columns: 50% 50%;
+        position: fixed;
+        top: 50%;
+        font-size: 80%;
+        width: 100%;
+        right: -5%;
+    }
+    #nia-1{
+        margin-left: -8%;
+    }
+
+    #nia-3{
+        margin-top: 115%;
+        margin-left: -8%;
+    }
+    #nia-4{
+        margin-top: 115%;
+    }
+
+    .background2{
+        margin-top: -50%;
+        padding-bottom: 50%;
+    }
+    .background3{
+        margin-top: -50%;
+    }
+
+    .background4{
+        margin-top: -150%;
+        padding-bottom: 230%;
+        padding-top: 250%;
+    }
+
+    
+}
+

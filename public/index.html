@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <!-- METADATA ----------------------------------------------------------------------------------------------->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Retro Tetris by TEAM WHALA</title>
+        <link rel="shortcut icon" type=”image/png” href="media/web/favicon.png">
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <!-- FICHEROS CSS PARA ESTILO ------------------------------------------------------------------------------->
+        <link rel="stylesheet" href="css/web/web_style.css">
+        <link rel="stylesheet" href="css/web/add-ons.css">
+        <link rel="stylesheet" href="css/web/ranking.css">
+        <link rel="stylesheet" href="css/web/dev_style.css">
+        <link rel="stylesheet" href="css/mobile/buttons.css">
+        <link rel="stylesheet" href="css/mobile/mobile_game.css">
+        <link rel="stylesheet" href="css/game/score_bar.css">
+        <link rel="stylesheet" href="css/game/game_style.css">
+        <link rel="stylesheet" href="css/game/game_leveler.css">
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <!-- EFECTOS DE SONIDO Y MÚSICAS DEL JUEGO ------------------------------------------------------------------>
+        <audio id="SFX_POP" type="audio/mp3" src="media/sounds/SFX_POP.mp3" preload="auto"></audio>
+        <audio id="SFX_STEP" type="audio/mp3" src="media/sounds/SFX_STEP.mp3" preload="auto"></audio>
+        <audio id="SFX_MOVE" type="audio/mp3" src="media/sounds/SFX_MOVE.mp3" preload="auto"></audio>
+        <audio id="SFX_ROTATE" type="audio/mp3" src="media/sounds/SFX_ROTATE.mp3" preload="auto"></audio>
+        <audio id="SFX_ACCELERATE" type="audio/mp3" src="media/sounds/SFX_ACCELERATE.mp3" preload="auto"></audio>
+        <audio id="SFX_DROP" type="audio/mp3" src="media/sounds/SFX_DROP.mp3" preload="auto"></audio>
+        <audio id="SFX_CRASH" type="audio/mp3" src="media/sounds/SFX_CRASH.mp3" preload="auto"></audio>
+        <audio id="SFX_ROW" type="audio/mp3" src="media/sounds/SFX_ROW.mp3" preload="auto"></audio>
+        <audio id="SFX_ROW4" type="audio/mp3" src="media/sounds/SFX_ROW4.mp3" preload="auto"></audio>
+        <audio id="SFX_LVLUP_1" type="audio/mp3" src="media/sounds/SFX_LVLUP_1.mp3" preload="auto"></audio>
+        <audio id="SFX_LVLUP_2" type="audio/mp3" src="media/sounds/SFX_LVLUP_2.mp3" preload="auto"></audio>
+        <audio id="SFX_LVLUP_3" type="audio/mp3" src="media/sounds/SFX_LVLUP_3.mp3" preload="auto"></audio>
+        <audio id="SFX_LVLUP_4" type="audio/mp3" src="media/sounds/SFX_LVLUP_4.mp3" preload="auto"></audio>
+        <audio id="SFX_ENDGAME" type="audio/mp3" src="media/sounds/SFX_ENDGAME.mp3" preload="auto"></audio>
+        <audio id="SFX_PAUSE" type="audio/mp3" src="media/sounds/SFX_PAUSE.mp3" preload="auto"></audio>
+        <audio id="MUSIC_LVL_1" type="audio/mp3" src="media/sounds/MUSIC_LVL_1.mp3" preload="auto"></audio>
+        <audio id="MUSIC_LVL_2" type="audio/mp3" src="media/sounds/MUSIC_LVL_2.mp3" preload="auto"></audio>
+        <audio id="MUSIC_LVL_3" type="audio/mp3" src="media/sounds/MUSIC_LVL_3.mp3" preload="auto"></audio>
+        <audio id="MUSIC_LVL_4" type="audio/mp3" src="media/sounds/MUSIC_LVL_4.mp3" preload="auto"></audio>
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <!-- EFECTOS DE SONIDO DE LA PÁGINA WEB --------------------------------------------------------------------->
+        <audio id="WSFX_CLICK_1" type="audio/mp3" src="media/sounds/WSFX_CLICK_1.mp3" preload="auto"></audio>
+        <audio id="WSFX_CLICK_2" type="audio/mp3" src="media/sounds/WSFX_CLICK_2.mp3" preload="auto"></audio>
+        <audio id="WSFX_CLICK_3" type="audio/mp3" src="media/sounds/WSFX_CLICK_3.mp3" preload="auto"></audio>
+        <audio id="WSFX_HOVER_1" type="audio/mp3" src="media/sounds/WSFX_HOVER_1.mp3" preload="auto"></audio>
+        <audio id="WSFX_HOVER_2" type="audio/mp3" src="media/sounds/WSFX_HOVER_2.mp3" preload="auto"></audio>
+        <audio id="WSFX_HOVER_3" type="audio/mp3" src="media/sounds/WSFX_HOVER_3.mp3" preload="auto"></audio>
+        <audio id="WSFX_RETURN" type="audio/mp3" src="media/sounds/WSFX_RETURN.mp3" preload="auto"></audio>
+        <!----------------------------------------------------------------------------------------------------------->
+
+    </head>
+
+    <!-- ADAPTACIÓN PARA LA VERSIÓN MÓVIL --------------------------------------------------------------->
+    <div class = "general">
+
+        <header class="secondary">
+            <a href="index.html"><img src="media/web/TETRISBWT.png" id="title"></a>
+            <button id="fullscreen" style="right: 10px; display: block"><i id="fscsym" class="fas fa-expand-arrows-alt"></i></button>
+        </header>
+
+        <div id="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="letters">
+            <h2 id="container-up">Retro Tetris</h2>
+            <div id="separator"></div>
+            <h3 id="container-down">Inspired by retro-wave and 80's</h3>
+        </div>
+
+        <nav id="navigator">
+            <span id="nDev">Desarrollo</span>
+            <span id="nGame">Jugar</span>
+            <span id="nAuthors">Autores</span>
+        </nav>
+
+    </div>
+    <!--------------------------------------------------------------------------------------------------->
+
+    <body>
+
+        <div class="background"> </div>
+
+        <!-- SECCIÓN PLAY ------------------------------------------------------------------------------------------->
+        <section id="game" class="secondary">
+
+            <!-- MENÚ DE ELECCIÓN DE NIVEL (LEVELER) -------------------------------------------------------------------->
+            <div id="leveler" class="leveler">
+                <img src="media/game/level1.jpg" class="level" id="level1">
+                <img src="media/game/level2.jpg" class="level" id="level2">
+                <img src="media/game/level3.jpg" class="level" id="level3">
+                <img src="media/game/level4.jpg" class="level" id="level4">
+            </div>
+            <!----------------------------------------------------------------------------------------------------------->
+
+            <!-- CUENTA ATRÁS ------------------------------------------------------------------------------------------->
+            <div id="counter" class="counter">
+                <video id="countdown">
+                    <source src="./media/videos/countdown.mp4" type="video/mp4"></source>
+                    Tu navegador no admite videos HTML5.
+                </video>
+            </div>
+            <!----------------------------------------------------------------------------------------------------------->
+
+            <!-- SECCIÓN DEL TETRIS (JUEGO) ----------------------------------------------------------------------------->
+            <div class="tetris" id="backing_video">
+
+                <!-- VÍDEO DE FONDO ------------------------------------------------------------------------------------->
+                <video autoplay muted loop id="myVideo">
+                    <source id="selected_video" src="./media/videos/level1.m4v" type="video/mp4">
+                    Tu navegador no admite videos HTML5.
+                </video>
+                <!------------------------------------------------------------------------------------------------------->
+
+                <!-- MENÚ LATERAL DENTRO DEL JUEGO (ADD-ON) ------------------------------------------------------------->
+                <aside class="ingame_menu">
+                    <button id="back" class="interactive">Volver</button>
+                    <button id="music" class="interactive">Música: ON</button>
+                    <button id="stop_video" class="interactive">Video: ON</button>
+                </aside>
+                <!------------------------------------------------------------------------------------------------------->
+
+                <div class="tetris" id="Tetris1">
+                    <!-- ANIMACIONES "LET'S GO!"" / "LEVEL UP!" --------------------------------------------------------->
+                    <div class="start_game_animation" id="addon_animation">LET'S GO!</div>
+                    <div class="level_up_animation" id="addon_animation">LEVEL UP!</div>
+                    <!--------------------------------------------------------------------------------------------------->
+
+                    <!-- CANVAS DE TABLERO, HOLD Y NEXTBOTONES PARA LA VERSIÓN MÓVIL ------------------------------------>
+                    <canvas class="canvas" id="canvas_1"></canvas>
+                    <div class="canvas_title" id="canvas_2_title">NEXT</div>
+                    <canvas class="canvas" id="canvas_2"></canvas>
+                    <div class="canvas_title" id="canvas_3_title">HOLD</div>
+                    <canvas class="canvas" id="canvas_3"></canvas>
+                    <!--------------------------------------------------------------------------------------------------->
+
+                    <!-- BOTONES PARA LA VERSIÓN MÓVIL ------------------------------------------------------------------>
+                    <div class="controls_box" id="controls_box_smartphone">
+                        <button type="button" id="movUp" class="boton"> <img class="flechas" src="media/mobile/top-arrow.png"></button><br>
+                        <button type="button" id="movLeft" class="boton"> <img class="flechas" src="media/mobile/left-arrow.png"></button>
+                        <button type="button" id="movDown" class="boton"> <img class="flechas" src="media/mobile/bot-arrow.png"></button>
+                        <button type="button" id="movRight" class="boton"> <img class="flechas" src="media/mobile/right-arrow.png"></button><br>
+                        <button type="button" id="savePlayer" class="boton"><h class="bot_font">SAVE</h></button>
+                        <button type="button" id="drop" class="boton"><h class="bot_font">DROP</h></button>
+                        <button type="button" id="pause" class="boton"><h class="bot_font">PAUSE</h></button>
+                        <button type="button" id="reset" class="boton"><h class="bot_font">RESET</h></button>
+                    </div>
+                    <div class="controls_box" id="controls_box_pc"><br><br><br><br><br>NOT<br>AVAILABLE</div>
+                    <!--------------------------------------------------------------------------------------------------->
+
+                    <!-- BARRA DE PROGRESO ANIMADA ---------------------------------------------------------------------->
+                    <canvas class="canvas" id="canvas_4"></canvas>
+                    <progress class="score_progress" id="score_progress" max="4000"></progress>
+                    <!--------------------------------------------------------------------------------------------------->
+                </div>
+            </div>
+            <!----------------------------------------------------------------------------------------------------------->
+
+
+            <!-- SECCIÓN RANKING ---------------------------------------------------------------------------------------->
+            <div id="ranking" class="ranker">
+                <form action="../ranking" method="post">
+                    <fieldset class="fieldset">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" /><br />
+                        <input type="hidden" name="score" id="hidInput" />
+                        <input type="submit" id="submit_rank" class="interactive" value="Enviar" />
+                    </fieldset>
+                </form>
+            </div>
+            <!----------------------------------------------------------------------------------------------------------->
+        </section>
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <!-- SECCIÓN DESARROLLO ------------------------------------------------------------------------------------->
+        <section id="dev" class="secondary">
+
+            <!-- BARRA DE NAVEGACIÓN DEL APARTADO DE DESARROLLO ----------------------------------------------------->
+            <div id="header_dev">
+                <a class="logo" href="index.html"> <img src="media/web/TETRISBWT.png"> </a>
+                <ul>
+                    <li><h3 id="video_button">Video presentación</h3></li>
+                    <li><h3 id="controls_button">Controles</h3></li>
+                    <li><h3 id="about_us_button">Desarrollo web</h3></li>
+                </ul>
+            </div>
+            <!------------------------------------------------------------------------------------------------------->
+
+            <!-- APARTADOS DE DESARROLLO ---------------------------------------------------------------------------->
+            <div id="video">
+                <iframe src="https://www.youtube.com/embed/ZpwEWAx8SME" width="640" height="480" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div id="controls">
+                <div class="background2"> </div>
+                <img src="media/dev/keyboard.png" >
+                <p id="movil_txt" class="developer">*En móviles y tablets los controles están en la propia pantalla</p>
+                <p id="reglas_txt" class="developer">¡Completa líneas, suma puntos, y no dejes que las piezas lleguen hasta arriba!</p>
+            </div>
+            
+            <div id="about_us">
+                <div class="background3"> </div>
+                <p id="about_us-1" class="developer">
+                    <br><br>
+                    <strong> Óscar</strong>
+                    <br><br>
+                    "En lo relativo al diseño del juego (ideas, funcionamiento, código, corrección de bugs…)
+                    hemos participado todos los miembros del equipo de manera equilibrada. Con diferencia,
+                    esta ha sido la parte que más tiempo nos ha llevado.
+                    <br><br>
+                    En un principio yo programé una versión inicial del Tetris con un sistema de colisiones diferente.
+                    Finalmente Sergio y Álex propusieron otra versión que resultó ser más eficiente y flexible.
+                    Si bien fue su modelo el que terminamos usando, sí se heredaron partes de mi versión como la
+                    gestión de la puntuación y cambios de nivel.
+                    <br><br>
+                    A parte de ello, me he ocupado de componer la música y diseñar los efectos de sonido
+                    en Cubase (tanto para la página web como para el juego), así como de integrarlos en el
+                    código usando jQuery.
+                    <br><br>
+                    También me he encargado de la estética del tablero: diseño general, apariencia de las
+                    figuras, mostrar la "preview" de la figura en juego (dónde caería), barra de progreso animada,
+                    efectos “Let’s Go!” / “Level Up!”, animación del tablero al iniciar el juego, etc. 
+                    Para que la estética de la página web fuese coherente en todos sus aspectos, todos los
+                    miembros del equipo pactamos previamente el estilo que buscábamos: retro, neón y arcade.
+                    <br><br>
+                    Por último, he participado en algunas cuestiones menores relativas al flujo en la página
+                    web, así como en la corrección de algunos errores que han ido surgiendo."
+                    <br>
+                </p>
+                <p id="about_us-2" class="developer">
+                    <br>
+                    <strong> Dani</strong>
+                    <br><br>
+                    "Por mi parte me he encargado de la adaptación del juego y la página web a dispositivos móviles 
+                    (Responsive Design). También me he ocupado de la creacion de los botones para proporcionar
+                    la jugabilidad en tablets y smartphones.
+                    <br><br>
+                    Para ello, he tenido que variar el código CSS y Javascript para poder adaptar el contenido
+                    de una forma óptima, valíendome de la herramienta Media Queries. Me he encontrado con múltiples 
+                    problemas al lidiar con la herencia, superposición de propiedades, estructura interna de la página, etc. 
+                    <br><br>
+                    Finalmente al igual que todos, he participado en el diseño del juego y corregido errores y bugs, especialmente 
+                    relacionados con interferencias entre la lectura de teclado y la de los botones de la versión móvil. También 
+                    me he encargado de la sección Autores, respetando el sentido artístico acordado con el equipo a la hora de diseñar 
+                    la página web."
+                    <br>
+                </p>
+            </div>
+
+            <div id="about_us">
+                <div class="background4"> </div>
+                <p id="about_us-3" class="developer">
+                    <br>
+                    <strong> Álex</strong>
+                    <br><br>
+                    "He hecho el esquema del funcionamiento de la página. Basándome en los modelos SPA, 
+                    donde hay un único HTML donde se muestra todo el contenido, que se muestra de manera dinámica con CSS, 
+                    a excepción del ranking. Así mismo, he implementado el navegador funcional y demás interacciones de la web, excepto la pestaña de desarrollo.
+                    <br><br>
+                    Por otra parte, he implementado que nuestro juego pueda ser hosteado en una web con node.js, 
+                    usando en concreto express.js. Aprovechando node.js, he establecido una interacción con el usuario,
+                    donde se almacena su nombre y la puntuación que ha obtenido. El servidor procesa la información recibida
+                    con un módulo diseñado por mí, data_manager, que mediante bubble-sort inserta la información en un archivo JSON.
+                    <br><br>
+                    Esta información es accedida desde una petición Ajax al servidor, y se muestra en la pantalla final, con el ranking.
+                    Por otra parte, el navegador y sus animaciones fue interesante de hacer con tecnologías jQuery que 
+                    permitieron manipular con facilidad el contenido web. He añadido así mismo un botón de entrar en pantalla completa y poder disfrutar al máximo el juego.
+                    <br><br>
+                    En el Tetris he contribuido al concepto en sí del funcionamiento general y algunas funciones básicas de movimiento de piezas,
+                    más los videos que he editado para que aparezcan de fondo, en conjunto con la pantalla de selección de niveles con sus imagenes. 
+                    He hecho también la pestaña de controles, y esta misma pestaña donde hablamos de lo que hemos hecho."
+                    <br>
+                    
+                </p>
+                <p id="about_us-4" class="developer">
+                    <br>
+                    <strong> Sergio</strong>
+                    <br><br>
+                    "Sobre mis hombros ha recaído las funciones principales del juego en sí, tales como la estructura general de este,
+                    el movimiento constante de las piezas hacia abajo, detectar choques y detección y supresión
+                    de filas llenas al encajar una pieza. Por último también me he encargado de algunas animaciones
+                    en la página web y de realizar el Vídeo de presentación.
+                    <br><br>
+                    Los principales problemas con los que he lidiado han sido sobre todo en Javascript, puesto que queríamos presentar
+                    un código limpio y optimizado: no solo era implementar las funciones, sino que estas fuesen modulares y tuviesen
+                    coherencia. En CSS y HTML tuve que lidiar con algún bug, pero nada grave."
+                </p>        
+            </div>
+
+            <div id="about_us">
+                <p id="referencias">
+                    <strong> Referencias</strong>
+                    <br><br>
+                    Para llevar a cabo este proyecto nos hemos servido de varias fuentes externas para poder salir del paso en muchas ocasiones. 
+                    También para ampliar nuestros conocimientos y aprender el funcionamiento de diversas funcionalidades, tanto visuales como a nivel 
+                    de motor de página.
+                    <br><br>
+                    Gracias a estas ayudas externas la página ha evolucionado significativamente y ha mejorado sus funcionalidades. A continuación 
+                    mostraremos el listado de dichas referencias:
+                    <ul>
+                        <li>Youtube: cursos, tutoriales... (pildorasinformaticas entre ellos)</li>
+                        <li>Adam freeman - the definitive guide to html5</li>
+                        <li>Node js de Mosh</li>
+                        <li>w3schools.com y stackOverflow, para aclarar dudas puntuales</li>
+                        <li>retro-synthwave.com de donde extrajimos la temática de la página (fondos, vídeos...)</li>
+                        <li>Vogayer Synthwave Retro, como librería base para desarrollar el aspecto sonoro</li>
+                    </ul>
+                    Por último y no menos importante, damos un especial agradecimiento a la hermana de Álex, Merysu de Cock Buning, por ayudar en la selección 
+                    de la paleta de colores, generar el logo, procesar las imágenes del Menú de nivel y del teclado de controles.
+                </p>
+            </div>
+            <!------------------------------------------------------------------------------------------------------->
+
+        </section>
+
+        <!-- SECCIÓN AUTORES ---------------------------------------------------------------------------------------->
+        <section id="authors" class="secondary">
+            <img src="media/authors/authors-2.jpg" id="author-2">
+            <img src="media/authors/authors-1.jpg" id="author-1">
+            <img src="media/authors/authors-4.jpg" id="author-4">
+            <img src="media/authors/authors-3.jpg" id="author-3">
+            <div id="nia">
+                <p id="nia-2"><strong>100383431</strong> <br><strong>Dani Dominguez</strong></p>
+                <p id="nia-1"><strong>100383523</strong> <br><strong>Óscar Campuzano</strong></p>
+                <p id="nia-4"><strong>100383348</strong> <br><strong>Alex de Cock Buning</strong></p>
+                <p id="nia-3"><strong>100383441</strong> <br><strong>Sergio Bernal</strong></p>
+            </div>
+        </section>
+        <!----------------------------------------------------------------------------------------------------------->
+
+        <i class="fas fa-angle-double-up" id="hoverme"></i>
+
+    </body>
+
+    <!-- SCRIPTS PARA FUNCIONAMIENTO Y JQUERY ----------------------------------------------------------->
+    <script type="text/javascript" src="js/web/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/web/nav_interaction.js"></script>
+    <script type="text/javascript" src="js/web/add-ons.js"></script>
+    <script type="text/javascript" src="js/web/web_sounds.js"></script>
+    <script type="text/javascript" src="js/web/dev.js"></script>
+    <script type="text/javascript" src="js/game/sounds.js"></script>
+    <script type="text/javascript" src="js/game/figure.js"></script>
+    <script type="text/javascript" src="js/game/board.js"></script>
+    <script type="text/javascript" src="js/game/gameplay.js"></script>
+    <script type="text/javascript" src="js/game/main.js"></script>
+    <script type="text/javascript" src="js/game/end_game.js"></script>
+    <script src="https://kit.fontawesome.com/af8c1be6fd.js" crossorigin="anonymous"></script>
+    <!--------------------------------------------------------------------------------------------------->
+
+</html>

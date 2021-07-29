@@ -1,0 +1,85 @@
+/*-------------- CAJA DE CONTROLES -------------*/ 
+
+.controls_box {
+    width: 150px;
+    height: 220px;
+
+    text-align: center;
+    float: right;
+}
+
+#controls_box_smartphone {
+    display: none;
+}
+
+#controls_box_pc {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    color: #888;
+    font-display: center;
+    font-style: oblique;
+    opacity: 40%;
+
+    display: block;
+}
+
+
+
+
+
+
+/*------------------- BOTONES ------------------*/ 
+
+.boton{
+    background: grey;
+    border: 1px solid whitesmoke;
+
+    margin: 2%;
+    padding: 2%;    
+}
+
+.boton:active {
+    border: 1px solid grey;
+}
+
+.boton:hover {
+    background: rgb(160,160,160);
+}
+
+#movUp, #movLeft, #movDown, #movRight {
+    border-radius: 15px;
+    width: 40px;
+    height: 40px;
+
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+#savePlayer, #drop {
+    border-radius: 10px;
+    width: 90%;
+    height: 15%;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#pause, #reset{
+    text-size-adjust: 10px;
+    width: 44%;
+    padding-right: 3%;
+    border-radius: 10px;
+}
+
+.flechas{
+    width: 90%;
+    height: 90%;
+    float: center;
+    margin-top: 2px;
+}
+
+.bot_font {
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: auto;
+}

@@ -1,0 +1,108 @@
+/* -------------- BOTONES ADD-ON ----------------*/
+
+#fullscreen{
+    position: fixed;
+    border: none;
+    padding:10px;
+    border-radius: 50%;
+    right:5px;
+    background-color:lightblue;
+    visibility: visible;
+    
+}
+
+.interactive{   
+    color: black;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: 0.3s;
+    margin-left: -10px;
+}
+
+.interactive:hover{
+    background:transparent;
+    color: white;
+    cursor: pointer;   
+}
+
+.ingame_menu {
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    animation: ingame_menu_effect 1s 1s forwards;
+}
+
+ #back, #music, #stop_video {
+     display: block;
+ }
+
+
+
+ #hoverme{
+    position:absolute; 
+    opacity:0;
+    color: #ebebeb;
+    bottom:10px; 
+    font-size: 200%
+}
+
+
+
+
+
+
+
+ /* -------------- EFECTOS ADD-ON ----------------*/
+ .level_up_animation, .start_game_animation {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px black;
+    border-radius: 8px;
+
+    width: 100%;
+    grid-column: 1/5;
+    grid-row: 1;
+
+    display: block;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+
+
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+@keyframes level_up_fx {
+    0% {
+        margin-top: 100%;
+        filter: blur(5px);
+        opacity: 0;
+    } 50% {
+        margin-top: 60%;
+        filter: blur(1px);
+        opacity: 1;
+    } 100% {
+        margin-top: 0%;
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes ingame_menu_effect {
+    0% {
+        opacity: 0;
+        left: -1000px;
+    } 100% {
+        opacity: 1;
+        left: 50px;
+    }
+} 
