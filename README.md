@@ -1,4 +1,4 @@
 # Web-Tetris
-Web con el juego tetris. Necesita la instalacion de node.js para el funcionamiento correcto de la base de datos
+Interactive website with the game Tetris built on it. Languages used: html, css, JavaScript. Hosted on GitHub pages.
 
-La web esta hosteada con github pages, puede verse [aqui](https://divios.github.io/Web-Tetris/public/index.html)
+Hosted on github pages, [link](https://divios.github.io/Web-Tetris/public/index.html)
